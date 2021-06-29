@@ -12,19 +12,19 @@ import uuid
 # Create your views here.
 def details_page(request):
     
-    # if Visitors.objects.filter(date = date.today()).count() ==0:
-    #     Visitors.objects.create(date = date.today()).save()
-    # count = Visitors.objects.get(date = date.today())
+    if Visitors.objects.filter(date = date.today()).count() ==0:
+        Visitors.objects.create(date = date.today()).save()
+    count = Visitors.objects.get(date = date.today())
     
-    # count.detail_page = count.detail_page+1
-    # count.save()
+    count.detail_page = count.detail_page+1
+    count.save()
     return render(request,'jobs1/details_page.html')
 def index(request):
-    # if Visitors.objects.filter(date = date.today()).count() ==0:
-    #     Visitors.objects.create(date = date.today()).save()
-    # count = Visitors.objects.get(date = date.today())
-    # count.detail_page = count.detail_page+1
-    # count.save()
+    if Visitors.objects.filter(date = date.today()).count() ==0:
+        Visitors.objects.create(date = date.today()).save()
+    count = Visitors.objects.get(date = date.today())
+    count.detail_page = count.detail_page+1
+    count.save()
     no_of_pages=8
     
     
@@ -42,41 +42,41 @@ def index(request):
     return render(request, 'jobs1/index.html',NumberOfRecordsBy.jobs_by_category('all_jobs',1))
 
 def index1(request,category_name,page_number):
-    # if Visitors.objects.filter(date = date.today()).count() ==0:
-    #     Visitors.objects.create(date = date.today()).save()
-    # count = Visitors.objects.get(date = date.today())
-    # count.index_page = count.index_page+1
-    # count.save()
+    if Visitors.objects.filter(date = date.today()).count() ==0:
+        Visitors.objects.create(date = date.today()).save()
+    count = Visitors.objects.get(date = date.today())
+    count.index_page = count.index_page+1
+    count.save()
     return render(request, 'jobs1/index.html',NumberOfRecordsBy.jobs_by_category(category_name,page_number))
 
 
 
 def about_us(request):
-    # if Visitors.objects.filter(date = date.today()).count() ==0:
-    #     Visitors.objects.create(date = date.today()).save()
-    # count = Visitors.objects.get(date = date.today())
-    # count.detail_page = count.detail_page+1
-    # count.save()
+    if Visitors.objects.filter(date = date.today()).count() ==0:
+        Visitors.objects.create(date = date.today()).save()
+    count = Visitors.objects.get(date = date.today())
+    count.detail_page = count.detail_page+1
+    count.save()
     
     print(uuid.getnode())
     return render(request,'jobs1/about_us.html')
 
 def contact_us(request):
-    # if Visitors.objects.filter(date = date.today()).count() ==0:
-    #     Visitors.objects.create(date = date.today()).save()
-    # count = Visitors.objects.get(date = date.today())
-    # count.detail_page = count.detail_page+1
-    # count.save()
+    if Visitors.objects.filter(date = date.today()).count() ==0:
+        Visitors.objects.create(date = date.today()).save()
+    count = Visitors.objects.get(date = date.today())
+    count.detail_page = count.detail_page+1
+    count.save()
     return render(request,'jobs1/contact_us.html')
 
 
 
 def detailed1(request,job_id,post_type):
-    # if Visitors.objects.filter(date = date.today()).count() ==0:
-    #     Visitors.objects.create(date = date.today()).save()
-    # count = Visitors.objects.get(date = date.today())
-    # count.detail_page = count.detail_page+1
-    # count.save()
+    if Visitors.objects.filter(date = date.today()).count() ==0:
+        Visitors.objects.create(date = date.today()).save()
+    count = Visitors.objects.get(date = date.today())
+    count.detail_page = count.detail_page+1
+    count.save()
     params={}
     no_of_rows=8
     categories = Categary_label.objects.all()[:15]
@@ -151,7 +151,7 @@ def get_name(request,category_name,page_number):
                         
             #params={'company_name':company_name1,'experience':experience,'location':form.cleaned_data['location'],'jobs':data,'certs':data2,'comp_coding':data3,'page_list':page_list,'category_name':category_name}
             # redirect to a new URL:
-            return render(request, 'jsi/index.html',params)
+            return render(request, 'jobs1/index.html',params)
 
     # if a GET (or any other method) we'll create a blank form
     else:
@@ -159,4 +159,4 @@ def get_name(request,category_name,page_number):
         print("else")
     print("complete")
     #params={'company_name':form.cleaned_data['company_name'],'form':form}
-    return render(request, 'jsi/index.html')
+    return render(request, 'jobs1/index.html')
