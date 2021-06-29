@@ -1,0 +1,117 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0px;
+    padding : 0px;
+    text-align: left;
+}
+footer {
+    padding: 20px;
+    background: rgb(20, 20, 20);
+    color : black;
+    border-radius:  0px;
+
+}
+section{
+    width: 65%;
+    float: left;
+    padding: 2px;
+    
+    display: inline-table;
+    
+    
+}
+.row{
+    width : 100%;
+  
+}
+.right{
+width: 30%;
+float: left;
+margin-left: 5%;
+
+height: 400px;
+background: hotpink;
+border-left: indigo;
+border-radius: 10px;
+}
+
+.main{
+    margin:  10px 0px;
+}
+.main::after{
+    content:  "";
+    clear : both;
+    display :table;
+}
+
+
+table{
+    width: 100%;
+    border-bottom: groove;
+    color: rgb(1, 1, 15);
+
+  }
+
+  
+  th1{
+      width: 40%;
+  }
+  th2{
+    width: 40%;
+}
+th3{
+    width: 20%;
+}
+
+
+
+
+.bodyClass{
+    background: rgb(252, 252, 252);
+}
+
+
+b{
+    text-align: left;
+}
+p.groov{
+  
+    padding: 5px;
+    border-top: groove;
+    border-bottom: groove;
+}
+.navbar-style{
+    box-shadow: 0 5px 10 px wheat;
+}
+
+a.btn{
+    padding : 10px;
+    margin: 10px 10px;
+    width: fit-content;
+    border-radius: 20px;
+
+}
+a.btn-first{
+    background: transparent;
+    border: 1px solid blue;
+}
+a.btn-second{
+    background: darkorange;
+    border : none;
+    color : #fff;
+    box-shadow: 1px 1px 1px ;
+}
+.cardView{
+    border-style: groove;
+    border-bottom: 5px;
+    margin: 10px;
+}
+.card-body{
+    background-color: lightgoldenrodyellow;
+}
+
+  .btn-primary{
+      margin: 4px;
+  }

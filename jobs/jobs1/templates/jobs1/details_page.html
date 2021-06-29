@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <style>
+        .fa {
+          padding: 20px;
+          font-size: 30px;
+          width: 50px;
+          text-align: center;
+          text-decoration: none;
+          margin: 5px 2px;
+        }
+        
+        .fa:hover {
+            opacity: 0.7;
+        }
+        
+        .fa-facebook {
+          background: #3B5998;
+          color: white;
+        }
+        
+        .fa-twitter {
+          background: #55ACEE;
+          color: white;
+        }
+        
+        .fa-google {
+          background: #dd4b39;
+          color: white;
+        }
+        
+        .fa-linkedin {
+          background: #007bb5;
+          color: white;
+        }
+        
+        .fa-youtube {
+          background: #bb0000;
+          color: white;
+        }
+        
+        .fa-instagram {
+          background: #125688;
+          color: white;
+        }
+        
+        .fa-pinterest {
+          background: #cb2027;
+          color: white;
+        }
+        
+        .fa-snapchat-ghost {
+          background: #fffc00;
+          color: white;
+          text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        }
+        
+        .fa-skype {
+          background: #00aff0;
+          color: white;
+        }
+        
+        .fa-android {
+          background: #a4c639;
+          color: white;
+        }
+        
+        .fa-dribbble {
+          background: #ea4c89;
+          color: white;
+        }
+        
+        .fa-vimeo {
+          background: #45bbff;
+          color: white;
+        }
+        
+        .fa-tumblr {
+          background: #2c4762;
+          color: white;
+        }
+        
+        .fa-vine {
+          background: #00b489;
+          color: white;
+        }
+        
+        .fa-foursquare {
+          background: #45bbff;
+          color: white;
+        }
+        
+        .fa-stumbleupon {
+          background: #eb4924;
+          color: white;
+        }
+        
+        .fa-flickr {
+          background: #f40083;
+          color: white;
+        }
+        
+        .fa-yahoo {
+          background: #430297;
+          color: white;
+        }
+        
+        .fa-soundcloud {
+          background: #ff5500;
+          color: white;
+        }
+        
+        .fa-reddit {
+          background: #ff5700;
+          color: white;
+        }
+        
+        .fa-rss {
+          background: #ff6600;
+          color: white;
+        }
+        </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+    <title>Jobs Frame</title>
+
+</head>
+
+<body>
+
+
+
+  <nav class="navbar bg-primary">
+    <div class="container-fluid ">
+      <div class="navbar-header">
+        <button type="button" style="background-color:#2b0909 ;" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar1">
+          <span class="icon-bar" style="background-color:white ;"></span>
+          <span class="icon-bar" style="background-color:white ;"></span>
+          <span class="icon-bar" style="background-color:white ;"></span>
+        </button>
+        <b class="navbar-brand" >Jobs Frame</b>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar1">
+        <ul class="nav navbar-nav">
+          <li><a style=" 
+            color: white;
+            padding: 15px 25px;
+            text-align: center;" href="/index/all_jobs/1">Home</a></li>
+          <li><a style=" 
+            color: white;
+            padding: 15px 25px;
+            text-align: center;" href="/contact_us">Contact Us</a></li>
+          <li><a style=" 
+            color: white;
+            padding: 15px 25px;
+            text-align: center;" href="/about_us">About Us</a></li>
+      </ul>
+        
+      </div>
+    </div>
+  </nav>
+    
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        
+        <!-- <span class="navbar-brand " ><b>{{category_name}}</b></span> -->
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          {%for cat in categories%}
+          {%if category_name == cat.choice_id %}
+          <li class="active"><a href="/index/{{cat.choice_id}}/1" >{{cat.choice_name}}</a></li>
+          
+          {% else %}
+          <li ><a href="/index/{{cat.choice_id}}/1" >{{cat.choice_name}}</a></li>
+          {% endif %}
+          
+          {%endfor%}
+
+          
+
+      </ul>
+      </div>
+    </div>
+  </nav>
+    
+    
+    
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-8">
+          
+          <table class="table table-responsive table-bordered ">
+
+            <thead>
+              <tr class="info">
+                <th>{{company_name}}{{organised_by}}</th>
+                <th>{{profile_name}}{{certification_name}}</th>
+                <th><a class="btn btn-info" role="button" href="{{apply_link}}">Apply</a></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="active">
+                <td colspan="3"><b> Description :</b></td>
+
+              </tr>
+              <tr >
+                <td colspan="3">
+                  <p class="font-weight-normal">{{description|safe}}</p>
+                </td>
+
+              </tr>
+              <tr class="info" >
+                <td colspan="3"> <b>Experience : {{exp_from}}-{{exp_to}} years</b><br>
+                  <b>Last date to Apply : {{last_date}}</b><br>
+                  <b>Company Website:-</b><a href="{{website}}">{{website}}</a>
+                </td>
+
+              </tr>
+
+            </tbody>
+          </table>
+
+
+
+          <div class="container-fluid">
+            <div class="row">
+
+              <div class="col-lg-8">
+                <div class="card">
+                  <div class="card-header">More related jobs</div>
+                  <div class="card-body">
+                    {%for param in related_jobs %}
+                    <a class="card-link" href="/detailed/jobs/{{param.id}}"><b>Company name :
+                      </b>{{param.company_name}} <b>Looking for : </b> {{param.looking_for}}</a><br>
+                    {%endfor%}
+                  </div>
+                  <!-- <div class="card-footer"><a>More</a></div> -->
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <h2>Jobs<span class="badge badge-success">trending</span></h2>
+          <table class="table table-hover">
+
+            <thead>
+              <tr>
+                <th>Profile Name</th>
+                <th>Post Date</th>
+                <th>Last Date</th>
+                <th>Link</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {% for job in jobs %}
+              <tr>
+                <td>{{job.profile_name}}</td>
+                <td>{{job.post_date}}</td>
+                <td>{{job.last_date}}</td>
+                <td><a href="/detailed/jobs/{{job.id}}">details</a></td>
+              </tr>
+              {%endfor%}
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <footer class="text-center text-white" style="background-color: rgb(228, 248, 235); padding-bottom: 20px; padding-top: 20px; margin-top: 20px;">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+          <!-- Section: Social media -->
+          <section class="mb=4">
+            <!-- Facebook -->
+            <a class="fa fa-facebook" href="https://www.facebook.com/jobs.frame.3/about"></a>
+      
+            <!-- Youtube -->
+            <a class="fa fa-youtube" href="https://www.youtube.com/channel/UC02KUlA-Sqn8lwY2tt4386A"></a>
+
+            <!-- Instagram -->
+            <a class="fa fa-instagram" href="https://www.instagram.com/jobsframe/"></a>
+      
+            <!-- Linkedin -->
+            <a class="fa fa-linkedin" href="https://www.linkedin.com/company/jobs-frame/"></a>
+      
+          </section>
+          <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+      
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3"><span class="text-primary">© 2021 Copyright:</span>
+            <a href="https://www.jobsframe.in/"> Jobsframe.in</a>
+          </div>
+        <!-- Copyright -->
+      </footer>
+
+</body>
+
+</html>
