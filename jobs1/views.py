@@ -12,19 +12,19 @@ import uuid
 # Create your views here.
 def details_page(request):
     
-    if Visitors.objects.filter(date = date.today()).count() ==0:
-        Visitors.objects.create(date = date.today()).save()
-    count = Visitors.objects.get(date = date.today())
+    # if Visitors.objects.filter(date = date.today()).count() ==0:
+    #     Visitors.objects.create(date = date.today()).save()
+    # count = Visitors.objects.get(date = date.today())
     
-    count.detail_page = count.detail_page+1
-    count.save()
+    # count.detail_page = count.detail_page+1
+    # count.save()
     return render(request,'jobs1/details_page.html')
 def index(request):
-    if Visitors.objects.filter(date = date.today()).count() ==0:
-        Visitors.objects.create(date = date.today()).save()
-    count = Visitors.objects.get(date = date.today())
-    count.detail_page = count.detail_page+1
-    count.save()
+    # if Visitors.objects.filter(date = date.today()).count() ==0:
+    #     Visitors.objects.create(date = date.today()).save()
+    # count = Visitors.objects.get(date = date.today())
+    # count.detail_page = count.detail_page+1
+    # count.save()
     no_of_pages=8
     
     
@@ -42,41 +42,41 @@ def index(request):
     return render(request, 'jobs1/index.html',NumberOfRecordsBy.jobs_by_category('all_jobs',1))
 
 def index1(request,category_name,page_number):
-    if Visitors.objects.filter(date = date.today()).count() ==0:
-        Visitors.objects.create(date = date.today()).save()
-    count = Visitors.objects.get(date = date.today())
-    count.index_page = count.index_page+1
-    count.save()
+    # if Visitors.objects.filter(date = date.today()).count() ==0:
+    #     Visitors.objects.create(date = date.today()).save()
+    # count = Visitors.objects.get(date = date.today())
+    # count.index_page = count.index_page+1
+    # count.save()
     return render(request, 'jobs1/index.html',NumberOfRecordsBy.jobs_by_category(category_name,page_number))
 
 
 
 def about_us(request):
-    if Visitors.objects.filter(date = date.today()).count() ==0:
-        Visitors.objects.create(date = date.today()).save()
-    count = Visitors.objects.get(date = date.today())
-    count.detail_page = count.detail_page+1
-    count.save()
+    # if Visitors.objects.filter(date = date.today()).count() ==0:
+    #     Visitors.objects.create(date = date.today()).save()
+    # count = Visitors.objects.get(date = date.today())
+    # count.detail_page = count.detail_page+1
+    # count.save()
     
     print(uuid.getnode())
     return render(request,'jobs1/about_us.html')
 
 def contact_us(request):
-    if Visitors.objects.filter(date = date.today()).count() ==0:
-        Visitors.objects.create(date = date.today()).save()
-    count = Visitors.objects.get(date = date.today())
-    count.detail_page = count.detail_page+1
-    count.save()
+    # if Visitors.objects.filter(date = date.today()).count() ==0:
+    #     Visitors.objects.create(date = date.today()).save()
+    # count = Visitors.objects.get(date = date.today())
+    # count.detail_page = count.detail_page+1
+    # count.save()
     return render(request,'jobs1/contact_us.html')
 
 
 
 def detailed1(request,job_id,post_type):
-    if Visitors.objects.filter(date = date.today()).count() ==0:
-        Visitors.objects.create(date = date.today()).save()
-    count = Visitors.objects.get(date = date.today())
-    count.detail_page = count.detail_page+1
-    count.save()
+    # if Visitors.objects.filter(date = date.today()).count() ==0:
+    #     Visitors.objects.create(date = date.today()).save()
+    # count = Visitors.objects.get(date = date.today())
+    # count.detail_page = count.detail_page+1
+    # count.save()
     params={}
     no_of_rows=8
     categories = Categary_label.objects.all()[:15]
