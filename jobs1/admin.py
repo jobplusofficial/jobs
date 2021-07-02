@@ -3,7 +3,9 @@ from .models import *
 from import_export.admin import ImportExportModelAdmin
 
 admin.site.register(Visitors)
-admin.site.register(Categary_label)
+@admin.register(Categary_label)
+class JobsAdmin(ImportExportModelAdmin):
+    pass
 @admin.register(Job)
 class JobsAdmin(ImportExportModelAdmin):
     list_display = ('id', 'company_name','profile_name','looking_for')
