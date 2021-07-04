@@ -10,6 +10,8 @@ import uuid
 
 
 # Create your views here.
+def base2(request):
+    return render(request,'jobs1/base2.html')
 def details_page(request):
     
     if Visitors.objects.filter(date = date.today()).count() ==0:
