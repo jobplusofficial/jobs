@@ -20,4 +20,7 @@ class JobsAdmin(ImportExportModelAdmin):
 @admin.register(Courses_and_certification)
 class JobsAdmin(ImportExportModelAdmin):
     pass
+@admin.register(User)
+class JobsAdmin(ImportExportModelAdmin):
+    pass
   

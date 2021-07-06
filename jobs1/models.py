@@ -26,18 +26,7 @@ class Categary_label(models.Model):
         return str(self.id)+"-"+self.choice_id+"-"+self.choice_name
     
 class Catagories(models.Model):
-    # choice = [ ("all_jobs" ,"All Jobs"),
-    #     ("private_tech_jobs" ,"Private Tech Jobs"),
-    #     ("private_non_tech_jobs" ,"Private Non Tech Jobs"),
-    #     ("part_time_jobs" ,"Part Time Jobs"),
-    #     ("govt_tech_jobs" ,"Govt. Tech Jobs"),
-    #     ("govt_non_tech_jobs" ,"Govt. Non Tech Jobs"),
-    #     ("internships" ,"Internships"),
-    #     ("competative_coding" ,"Competative Coding"),
-    #     ("free_courses" ,"Free Courses"),
-    #     ("certifications" ,"Certifications")
-        
-    # ]
+
     choice = [(val.choice_id,val.choice_name) for val in Categary_label.objects.all()]
     id = models.CharField(max_length=100,primary_key=True)
     job_id = models.ForeignKey(Job,on_delete= models.CASCADE)
@@ -70,3 +59,17 @@ class Visitors(models.Model):
     about_us = models.IntegerField(default=0)
     def __str__(self):
         return str(self.date)+" "+" index: " + str(self.index_page) +" details: "+str(self.detail_page)
+
+
+class User(models.Model):
+    name = models.CharField(max_length=60)
+    email_id = models.CharField(max_length=60)
+    password = models.CharField(max_length=20)
+    profile = models.CharField(max_length=100)
+    prograrmming_language = models.CharField(max_length=200)
+    prefered_location = models.CharField(max_length=200)
+    exp_from = models.IntegerField()
+    exp_to = models.IntegerField()
+
+
+
