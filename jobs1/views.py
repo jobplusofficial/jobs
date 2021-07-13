@@ -240,9 +240,13 @@ def signInView(request):
     form = SignInForm(request.POST)
     user_name =  ""
     password = ""
+    if request.user.is_authenticated:
+        return HttpResponse(" already Logged in")
     if form.is_valid():
+        
             # process the data in form.cleaned_data as required
             # ...
+            
         user_name = form.cleaned_data['user_name']
         password = form.cleaned_data['password']
     user = authenticate(request, username=user_name, password=password)
@@ -251,4 +255,5 @@ def signInView(request):
         return HttpResponse("Succesfully Logged in")
     else:
         return HttpResponse("failed to Log in")
+
 
