@@ -10,6 +10,10 @@ urlpatterns = [
     path('detailed/<str:post_type>/<str:job_id>', views.detailed1, name="DetailedPage1"),
     path('detailed/<str:post_type>/<int:job_id>', views.detailed1, name="DetailedPage1"),
     path('contact1/<str:category_name>/<int:page_number>', views.get_name),
-    path('base2/', views.base2)
+    path('base2/', views.base2),
+    path('base2/1', views.signUpView),
+    path('base2/2', views.signInView),
+    path('emailIdExist/<str:user_name>', views.isUserExist)
+
 
 ]

@@ -124,7 +124,7 @@
         </style>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         
-        <link rel="stylesheet" href="sign_up_css.css">
+        <link  type="text/css" href="/sign_up_css.css">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -175,99 +175,218 @@
 
           
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a style=" 
+          color: white;
+          padding: 15px 25px;
+          text-align: center;"
+          onclick="document.getElementById('id01').style.display='block'"
+          ><span class="glyphicon glyphicon-user" ></span>Login </a></li>
+        <li><a style=" 
+          color: white;
+          padding: 15px 25px;
+          text-align: center;" data-toggle="modal" data-target="#modalSignUpForm"><span class="glyphicon glyphicon-log-in"></span> Sign Up</a></li>
+      </ul>
       
         
       </div>
     </div>
     
   </nav>
+
+
+      <div class="modal fade" id="modalSignInForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+      aria-hidden="true" action="/action_page.php">
+      
+      <div class="modal-dialog" role="document">
+      
+        <div class="modal-content">
+        
+          <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold">Sign Up</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          
+          <form style="margin: 12px;" id='jobSearch' class = "form-inline"  method="post">
+            {% csrf_token %}
     
-  <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
+              <br>
+              <label>Your Name</label><br>
+              <input type="text" name="name" class="form-control" minlength="2" maxlength="20" required >
+              <br>
+              <label>User Name</label><br>
+              <input type="text" name="user_name" id="user_name" class="form-control" minlength="2" maxlength="20" required >
+              <br>
+              <label >Your email</label><br>
+              <input type="email" name="email_id" id="email_id" class="form-control" required>
+              <span class="error"><p id="email_error"></p></span>
+              
+          <br>
+              <label>Your password</label><br>
+              <input type="password" name="password" class="form-control"  minlength="6" maxlength="15" required>
+              <br>
+    
+              <label>Prefered Profile</label><br>
+              <input type="text" name="prefered_profile" class="form-control" >
+              <br>
+              <label>Prefered Programming Language</label><br>
+              <input type="text" name="prefered_prog_lang" class="form-control" >
+              <br>
+              <label>Prefered Location</label><br>
+              <input type="text" name="prefered_location" class="form-control" >
+              <br>
+              <label>Experience From</label><br>
+              <input type="number" name="exp_from"class="form-control" required>
+              <br>
+              <label>Experience To</label><br>
+              <input type="number" name="exp_to" class="form-control" required>
+              <br>
+            
+    
+              <button type="submit" class="btn btn-success">Sign Up</button>
+                
+            
+            </form>
+            
 
-    <footer class="text-center text-white" style="background-color: rgb(228, 248, 235); padding-bottom: 20px; padding-top: 20px; margin-top: 20px;">
-        <!-- Grid container -->
-        <div class="container p-4 pb-0">
-          <!-- Section: Social media -->
-          <section class="mb=4">
-            <!-- Facebook -->
-            <a class="fa fa-facebook" href="https://www.facebook.com/jobs.frame.3/about"></a>
-      
-            <!-- Youtube -->
-            <a class="fa fa-youtube" href="https://www.youtube.com/channel/UC02KUlA-Sqn8lwY2tt4386A"></a>
 
-            <!-- Instagram -->
-            <a class="fa fa-instagram" href="https://www.instagram.com/jobsframe/"></a>
-      
-            <!-- Linkedin -->
-            <a class="fa fa-linkedin" href="https://www.linkedin.com/company/jobs-frame/"></a>
-      
-          </section>
-          <!-- Section: Social media -->
+            <!-- <script>
+              function isUserExist(){
+                email = document.getElementById("email_id").value;
+                count = fetch('http://127.0.0.1:8000/emailIdExist/abd').then(res=> res.body);
+                alert(count);
+
+              }
+            </script> -->
+
+
+            <script>
+              function SignUp(){
+                //email = document.getElementById("email_id").value;
+                //document.getElementById('email_error').innerHTML = "email";
+                document.getElementById("jobSearch").action = "/base2/1";
+                document.getElementById("jobSearch").submit();
+                //document.write("Successfully Registered");
+    
+              }
+            </script>
+
+
+         
         </div>
-        <!-- Grid container -->
-      
-        <!-- Copyright -->
-        <div class="footer-copyright text-center py-3"><span class="text-primary">© 2021 Copyright:</span>
-            <a href="https://www.jobsframe.in/"> Jobsframe.in</a>
-          </div>
-        <!-- Copyright -->
-      </footer>
-
-      <div id="id01" class="modal">
-        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-        <form class="modal-content" action="/action_page.php">
-          <div class="container">
-            <h1>Sign Up</h1>
-            <p>Please fill in this form to create an account.</p>
-            <hr>
-            
-            <label for="name"><b>Name</b></label>
-            <input type="text" placeholder="Enter Name" name="name" required>
-            
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" required>
-      
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
-      
-            <label for="psw-repeat"><b>Repeat Password</b></label>
-            <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-            
-          <label for="profile"><b>Profile</b></label>
-            <input type="text" placeholder="Enter Profile" name="profile" >
-            
-          <label for="pro_lan"><b>Programming Language</b></label>
-            <input type="text" placeholder="Enter Programming Language" name="pro_lan" required>
-            <label for="pre_loc"><b>Prefered Location</b></label>
-            <input type="text" placeholder="Enter Prefered Location" name="pre_loc" >
-            
-            <label for="exp_from"><b>Experience From</b></label>
-            <input type="text" placeholder="Enter Experience From" name="exp_from" >
-            <label for="exp_to"><b>Experience To</b></label>
-            <input type="text" placeholder="Enter Experience To" name="exp_to" >
-      
-      
-      
-            <div class="clearfix">
-              <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-              <button type="submit" class="signupbtn">Sign Up</button>
-            </div>
-          </div>
-        </form>
       </div>
-      
-      <script>
-      // Get the modal
-      var modal = document.getElementById('id01');
-      
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
-      </script>
+    </div>
 
+    <div class="modal fade" id="modalSignUpForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true" action="/action_page.php">
+    
+    <div class="modal-dialog" role="document">
+    
+      <div class="modal-content">
+      
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">Sign In</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        
+        <form style="margin: 12px;" id='SignIn' class = "form-inline" action="/base2/2"  method="post">
+          {% csrf_token %}
+  
+
+            <label>User Name</label><br>
+            <input type="text" name="user_name" id="user_name" class="form-control" minlength="2" maxlength="20" required >
+            <br>
+
+            <label>Your password</label><br>
+            <input type="password" name="password" class="form-control"  minlength="6" maxlength="15" required>
+            <br>
+  
+         
+  
+            <button type="submit" class="btn btn-success">Sign In</button>
+              
+          
+          </form>
+          
+
+
+          <!-- <script>
+            function isUserExist(){
+              email = document.getElementById("email_id").value;
+              count = fetch('http://127.0.0.1:8000/emailIdExist/abd').then(res=> res.body);
+              alert(count);
+
+            }
+          </script> -->
+
+
+          <script>
+            function SignUp(){
+              //email = document.getElementById("email_id").value;
+              //document.getElementById('email_error').innerHTML = "email";
+              document.getElementById("jobSearch").action = "/base2/1";
+              document.getElementById("jobSearch").submit();
+              //document.write("Successfully Registered");
+  
+            }
+          </script>
+
+<script>
+  function SignIn(){
+    //email = document.getElementById("email_id").value;
+    //document.getElementById('email_error').innerHTML = "email";
+    document.getElementById("SignIn").action = "/base2/1";
+    document.getElementById("SignIn").submit();
+    //document.write("Successfully Registered");
+
+  }
+</script>
+
+
+       
+      </div>
+    </div>
+  </div>
+
+
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+          $("#jobSearch").on("submit",function(e){
+            //alert("call");
+            user_name = document.getElementById("user_name").value;
+            //alert(email);
+            
+            e.preventDefault();
+            
+                $.ajax({
+                  
+                  url : "/emailIdExist/"+user_name,
+                  type : "POST",
+                  cache:false,
+                  
+                  success:function(result){
+                    if(result==0){
+                      document.getElementById('email_error').innerHTML = "Email Id available";
+                      SignUp();
+                    }
+                    else
+                      document.getElementById('email_error').innerHTML = "Email Id already Exist";
+                    //alert(result);
+                  }
+                });
+            
+          });
+      });
+    </script>
+    
+    
 </body>
 
 </html>

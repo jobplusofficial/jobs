@@ -60,16 +60,30 @@ class Visitors(models.Model):
     def __str__(self):
         return str(self.date)+" "+" index: " + str(self.index_page) +" details: "+str(self.detail_page)
 
-
-class User(models.Model):
-    name = models.CharField(max_length=60)
-    email_id = models.CharField(max_length=60)
+class UserLogin(models.Model):
+    user_name = models.CharField(max_length=60,primary_key=True)
     password = models.CharField(max_length=20)
+    def __str__(self):
+        return " User Name :  " + str(self.user_name)
+
+class UserProfile(models.Model):
+    name = models.CharField(max_length=60)
+    user_name = models.ForeignKey(UserLogin,on_delete= models.CASCADE)
+    email_id = models.CharField(max_length=60)
     profile = models.CharField(max_length=100)
     prograrmming_language = models.CharField(max_length=200)
     prefered_location = models.CharField(max_length=200)
     exp_from = models.IntegerField()
     exp_to = models.IntegerField()
+    def __str__(self):
+        return "Name :  "+str(self.name) + str(self.email_id) 
 
+class JobHistory(models.Model):
+    job_id = models.CharField(max_length=100)
+    user_name = models.CharField(max_length=60)
+class RecommendedJob(models.Model):
+    job_id = models.CharField(max_length=100)
+    user_name = models.CharField(max_length=60)
 
-
+   
+    
